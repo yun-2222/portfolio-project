@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/folder.css">
+</head>
+<body>
+    <div class="folder_popup">
+        <section class="header">
+            <div class="all_btn">
+                <button class="mini_btn"><span></span></button>
+                <button class="max_btn"><span></span></button>
+                <button class="close_btn"><span></span></button>
+            </div>
+            <ul class="h_top">
+                <li class="home active">
+                    <div>
+                        <p>
+                            <img src="./image/icon/home1_icon.png" alt="홈 아이콘">
+                            홈
+                        </p>
+                        <button class="close_btn"><span></span></button>
+                    </div>
+                </li>
+                <li class="project">
+                    <div>
+                        <p>
+                            <img src="./image/icon/folder_icon.png" alt="폴더 아이콘">
+                            Project
+                        </p>
+                        <button class="close_btn"><span></span></button>
+                    </div>
+                </li>
+                <!-- 아래 두개의 탭 영역이 존재하는게 가능한가? -->
+                <li class="about_me">
+                    <div>
+                        <p>
+                            <img src="./image/icon/notion_icon.png" alt="노션 아이콘">
+                            About
+                        </p>
+                        <button class="close_btn"><span></span></button>
+                    </div>
+                </li>
+                <li class="contact">
+                    <div>
+                        <p>
+                            <img src="./image/icon/github_icon.png" alt="깃허브브 아이콘">
+                            contact
+                        </p>
+                        <button class="close_btn"><span></span></button>
+                    </div>
+                </li>
+            </ul>
+            <div class="h_bot">
+                <div class="nav">
+                    <button class="prev_btn"><img src="./image/icon/arrow_icon.png" alt="이전 버튼"></button>
+                    <button class="next_btn"><img src="./image/icon/arrow_icon.png" alt="다음 버튼튼"></button>
+                    <button class="up_btn"><img src="./image/icon/arrow_icon.png" alt="이전 폴더 버튼튼"></button>
+                    <button class="refresh_btn"><img src="./image/icon/refresh_icon.png" alt="새로고침 버튼"></button>
+                </div>
+                <ul class="address">
+                    <li><img src="./image/icon/home2_icon.png" alt="홈 아이콘"></li>
+                    <li>홈</li>
+                </ul>
+                <!-- input -->
+                <form action="" class="search">
+                    <label for="user-search">홈 검색</label>
+                    <input type="search" nmae="q" id="user-search" placeholder="홈 검색" aria-label="사이트 내용을 통해 검색">
+                    <div class="close_btn"><span></span></div>
+                    <button type="submit"><img src="./image/icon/search_icon.png" alt="검색 아이콘"></button>
+                </form>
+            </div>
+        </section>
+
+        <section class="main">
+            <div class="aside"> 
+                <ul class="left">
+                    <li>
+                        <p><img src="./image/icon/home1_icon.png" alt="홈 아이콘"></p>
+                        홈
+                    </li>
+                    <li>
+                        <p><img src="./image/icon/gallery_icon.png" alt="갤러리리 아이콘"></p>
+                        갤러리
+                    </li>
+                    <li>
+                        <p><img src="./image/icon/onedrive_icon.png" alt="원드라이브 아이콘"></p>
+                        oneDrive
+                    </li>
+                </ul>
+                <ul>
+                    <li class="active pin">
+                        <p><img src="./image/icon/folder_icon.png" alt="프로젝트 폴더 아이콘"></p>
+                        프로젝트
+                    </li>
+                    <li class="pin">
+                        <p><img src="./image/icon/memo_icon.png" alt="메모장장 아이콘"></p>
+                        메모장
+                    </li>
+                    <li class="pin">
+                        <p><img src="./image/icon/notion_icon.png" alt="노션션 아이콘"></p>
+                        노션
+                    </li>
+                    <li class="pin">
+                        <p><img src="./image/icon/github_icon.png" alt="깃깃 아이콘"></p>
+                        깃
+                    </li>
+                    <li>
+                        <p><img src="./image/icon/download_icon.png" alt="폴더 아이콘"></p>
+                        다운로드
+                    </li>
+                    <li>
+                        <p><img src="./image/icon/file_icon.png" alt="문서 아이콘"></p>
+                        문서
+                    </li>
+                    <li>
+                        <p><img src="./image/icon/picture_icon.png" alt="사진 아이콘"></p>
+                        사진
+                    </li>
+                    <li>
+                        <p><img src="./image/icon/music_icon.png" alt="음악악 아이콘"></p>
+                        음악
+                    </li>
+                    <li>
+                        <p><img src="./image/icon/video_icon.png" alt="동영상상 아이콘"></p>
+                        동영상
+                    </li>
+                </ul>
+            </div>
+            <ul class="center">
+                <li class="active">
+                    <p><img src="./image/icon/folder_icon.png" alt="폴더 아이콘"></p>
+                    바탕화면
+                </li>
+                <li>
+                    <p><img src="./image/icon/folder_icon.png" alt="폴더 아이콘"></p>
+                    폴더
+                </li>
+                <li>
+                    <p><img src="./image/icon/folder_icon.png" alt="폴더 아이콘"></p>
+                    메모장
+                </li>
+                <li>
+                    <p><img src="./image/icon/folder_icon.png" alt="폴더 아이콘"></p>
+                    노션
+                </li>
+                <li>
+                    <p><img src="./image/icon/folder_icon.png" alt="폴더 아이콘"></p>
+                    깃
+                </li>
+            </ul>
+        </section>
+
+        <section class="footer">
+            <ul>
+                <li>총 항목</li>
+                <li>선택된 항목</li>
+            </ul>
+            <p>큰 미리보기</p>
+        </section>
+    </div>
+</body>
+</html>
