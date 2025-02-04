@@ -4,13 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>my project</title>
-        <link rel="stylesheet" href="./css/reset.css">
-        <link rel="stylesheet" href="./css/project.css">
+        <link rel="stylesheet" href="../assets/css/reset.css">
+        <link rel="stylesheet" href="../assets/css/project.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     </head>
     <script>
-        fetch('../book/js/project.json')
+        fetch('../assets/js/project.json')
             .then((response) =>{
                 if(!response.ok){
                     throw new Error("400 아님 500 에러남");
@@ -29,7 +29,7 @@
         <div class="project_popup">
             <section class="header">
                 <div class="h_top">
-                    <span><img src="./image/icon/memo_icon.png" alt="메모 아이콘"></span>
+                    <span><img src="../assets/image/icon/memo_icon.png" alt="메모 아이콘"></span>
                     <p>파일 명</p>
                     <div class="all_btn">
                         <button class="mini_btn"><span></span></button>
@@ -42,7 +42,7 @@
                         <li>파일</li>
                         <li>EXIF</li>
                     </ul>
-                    <span><img src="./image/icon/pin_icon.png" alt="고정 아이콘"></span>
+                    <span><img src="../assets/image/icon/pin_icon.png" alt="고정 아이콘"></span>
                 </div>
             </section>
 
@@ -60,12 +60,12 @@
                         </dl>
 
                         <ul>
-                            <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
-                            <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
-                            <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
-                            <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
-                            <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
-                            <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
+                            <li><img src="../assets/image/folder/교과서 수학/1.webp" alt=""></li>
+                            <li><img src="../assets/image/folder/교과서 수학/1.webp" alt=""></li>
+                            <li><img src="../assets/image/folder/교과서 수학/1.webp" alt=""></li>
+                            <li><img src="../assets/image/folder/교과서 수학/1.webp" alt=""></li>
+                            <li><img src="../assets/image/folder/교과서 수학/1.webp" alt=""></li>
+                            <li><img src="../assets/image/folder/교과서 수학/1.webp" alt=""></li>
                         </ul>
 
                       </div>
