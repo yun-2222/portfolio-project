@@ -94,21 +94,6 @@
 }
 
 
-/* .folder_popup .header .h_bot .nav button[class$="_btn"]:not(.refresh_btn){
-    width: 23px;
-    height: 2px;
-    background-color: #000;
-    position: relative;
-}
-.folder_popup .header .h_bot .nav button[class$="_btn"]:not(.refresh_btn)::before{content: '';width: 18px;height: 2px;background:#000;position:absolute;rotate:45deg;top: calc(100% - 8px);right: -3px;} 
-.folder_popup .header .h_bot .nav button[class$="_btn"]:not(.refresh_btn)::after{content: '';width: 18px;height: 2px;background:#000;position:absolute;rotate:-45deg;bottom: calc(100% - 8px);right: -3px;} 
-
-.folder_popup .header .h_bot .nav .refresh_btn img{
-    width: 28px;
-    transform:scaleX(-1);
-} */
-
-
 /* main */
 .folder_popup .main{
     display: flex;
@@ -193,17 +178,26 @@
     width:100%;
 }
 
-.folder_popup .main .center{
+.folder_popup .main .contents{
+    position: relative;
     display:flex;
     gap: 10px 20px;
-    padding: 10px 30px 10px;
     flex-wrap: wrap;
-    width: 100%;
     flex: 1;
     align-content: flex-start;
 }
+.folder_popup .main .contents [class^="con"]{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 10px 30px 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+}
 
-.folder_popup .main .center li a{
+
+.folder_popup .main .contents [class^="con"] li{
     width: 220px;
     min-height: 240px;
     text-align: center;
@@ -216,18 +210,18 @@
     padding: 10px 0;
     box-sizing: border-box;
 } 
-.folder_popup .main .center li p{
+.folder_popup .main .contents [class^="con"] li p{
     width:188px;
     height:188px;
 }
-.folder_popup .main .center li img{
+.folder_popup .main .contents [class^="con"] li img{
     object-fit:contain;
     width:100%;
 }
-.folder_popup .main .center li:not(.active):hover{
+.folder_popup .main .contents [class^="con"] li:not(.active):hover{
     background-color:#e5f3ff;
 }
-.folder_popup .main .center li.active{
+.folder_popup .main .contents [class^="con"] li.active{
     border:1px solid #000;
     background-color:#e5f3ff;
 }

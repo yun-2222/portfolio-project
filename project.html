@@ -3,14 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>project</title>
+        <title>my project</title>
         <link rel="stylesheet" href="./css/reset.css">
         <link rel="stylesheet" href="./css/project.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     </head>
     <script>
-
-
-
+        fetch('../book/js/project.json')
+            .then((response) =>{
+                if(!response.ok){
+                    throw new Error("400 아님 500 에러남");
+                }
+                return response.json()
+            })  
+            .then((결과) =>{
+                console.log(결과)
+            })
+            .catch(()=>{
+                console.log('에러남')
+            })
+            s
     </script>
     <body>
         <div class="project_popup">
@@ -34,32 +47,36 @@
             </section>
 
             <section class="main">
-                <div class="slider">
-                    <dl>
-                        <dt>프로젝트 이름:</dt>
-                        <dd>123</dd>
-                        <dt>프로젝트 기간:</dt>
-                        <dd>123 ~ 123</dd>
-                        <dt>코멘트</dt>
-                        <dd>어쩌구저쩌구</dd>
-                    </dl>
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <dl>
+                            <dt>프로젝트 이름:</dt>
+                            <dd>123</dd>
+                            <dt>프로젝트 기간:</dt>
+                            <dd>123 ~ 123</dd>
+                            <dt>코멘트</dt>
+                            <dd>어쩌구저쩌구</dd>
+                        </dl>
 
-                    <ul>
-                        <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
-                        <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
-                        <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
-                        <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
-                        <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
-                        <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
-                    </ul>
-    
-                    <div class="footer">
-                        <button class="prev"></button>
-                        <button class="next"></button>
-                        <div class="pagenation"></div>    
+                        <ul>
+                            <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
+                            <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
+                            <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
+                            <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
+                            <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
+                            <li><img src="./image/folder/교과서 수학/1.webp" alt=""></li>
+                        </ul>
+
+                      </div>
                     </div>
-                </div>
-
+                    <div class="footer">
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                        <div>넘버</div>
+                    </div>
+                  </div>
             </section>
         </div>
     </body>
