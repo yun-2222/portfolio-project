@@ -1,6 +1,5 @@
 @charset "utf-8";
 
-
 .project_popup{
     position: absolute;
     inset: 0;
@@ -12,7 +11,6 @@
     border: 2px solid #aaaaab;
     overflow: hidden;
     box-sizing: border-box;
-    background: #202020;
 }
 
 .project_popup .header .all_btn {
@@ -66,11 +64,10 @@
     background: #444;
     border-bottom: 2px solid #fff;
     color: #fff;
+    gap: 20px;
 }
 
 .project_popup .header .h_top > span{
-    width: 80px;
-    height:100%;
     display:flex;
     justify-content:center;
     align-items: center;
@@ -129,25 +126,44 @@
     color: #fff;
     height: calc(100% - 114px);
 }
-
-.project_popup .main .swiper dl{
-    position:absolute;
-    top: -10px;
-    left: -30px;
-    text-shadow: 1px 0px 5px #000,0px 1px 5px #000,-1px 0px 5px #000,0px -1px 5px #000;
+.project_popup .main .swiper .swiper-slide{
+    background: #202020;
 }
-.project_popup .main .swiper{position: relative;width: 100%;height: 100%;padding: 50px 70px 140px;box-sizing: border-box;}
+
+.project_popup .main .swiper .info{
+    position:absolute;
+    top: 50px;
+    left: 40px;
+    text-shadow: 1px 0px 5px #000,0px 1px 5px #000,-1px 0px 5px #000,0px -1px 5px #000;
+    line-height: 44px;
+}
+
+.project_popup .main .swiper dl {
+    display:flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.project_popup .main .swiper{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
 
 .project_popup .main .swiper ul{
     display:flex;
-    justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0 50px;
     height: 100%;
+    gap: 30px 0px;
+    padding: 0 50px 0;
+    box-sizing: border-box;
+    align-content: center;
+    justify-content: space-between;
 }
 .project_popup .main .swiper li{
-    width:30%;
+    width: 32%;
 }
 
 .project_popup .main .swiper img{
@@ -155,14 +171,86 @@
 }
 
 .project_popup .main .swiper .footer{
-    width: calc(100% - 100px);
+    width: calc(100% - 250px);
     height: 90px;
-    background: rgb(133 131 131 / 50%);
+    background: rgb(90 90 90 / 80%);
     border-radius: 50px;
     position: absolute;
     margin: auto;
-    inset: auto 0 30px;
+    inset: auto 0 55px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 30px;
+    box-sizing: border-box;
+    z-index: 1;
 }
+.project_popup .main .swiper .footer > *{
+    position:initial
+}
+
+.project_popup .main .swiper .footer .swiper-pagination{
+    width: 300px;
+    height: 60px;
+    border-radius: 50px;
+    background: rgba(0,0,0,.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project_popup .main .swiper .footer .swiper-pagination-bullet{
+    width: 40px;
+    height: 40px;
+    background:transparent;
+    color: transparent;
+    transition: 0.1s;
+}
+
+.project_popup .main .swiper .footer .swiper-pagination-bullet-active{
+    background:#d2d2d2;
+}
+
+.project_popup .main .swiper .footer .swiper-pagination:hover .swiper-pagination-bullet{
+    width: 45px;
+    height: 45px;
+}
+.project_popup .main .swiper .footer .swiper-button-prev,
+.project_popup .main .swiper .footer .swiper-button-next{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #88888878;
+    margin: 0;
+}
+
+.project_popup .main .swiper .footer .swiper-button-prev:hover,
+.project_popup .main .swiper .footer .swiper-button-next:hover{
+    background:#d4d4d4d9;
+}
+
+.project_popup .main .swiper .footer .swiper-button-prev:after, .swiper-rtl .swiper-button-next:after,
+.project_popup .main .swiper .footer .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
+    color:#fff;
+    font-size:30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
