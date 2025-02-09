@@ -130,12 +130,18 @@
     background: #202020;
 }
 
+.project_popup .main .swiper .swiper-slide .inner{
+    width:inherit;
+    height:inherit;
+}
+
 .project_popup .main .swiper .info{
     position:absolute;
     top: 50px;
     left: 40px;
     text-shadow: 1px 0px 5px #000,0px 1px 5px #000,-1px 0px 5px #000,0px -1px 5px #000;
     line-height: 44px;
+    z-index: 1;
 }
 
 .project_popup .main .swiper dl {
@@ -161,13 +167,15 @@
     box-sizing: border-box;
     align-content: center;
     justify-content: space-between;
-}
-.project_popup .main .swiper li{
-    width: 32%;
+    position: absolute;
 }
 
-.project_popup .main .swiper img{
-    width:100%;
+.project_popup .main .swiper li{
+   width: 32%;
+    pointer-events:none
+}
+.project_popup .main .swiper li img{
+   width: 100%;
 }
 
 .project_popup .main .swiper .footer{

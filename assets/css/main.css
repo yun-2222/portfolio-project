@@ -3,24 +3,26 @@
 #wrap{
     position:relative;
     width: 100%;
-    height: 1080px;
+    height: 100vh;
     background: url(../image/background1.jpg)no-repeat center/100%;
+    font-size: 16px;
+    padding: 5px;
+    box-sizing: border-box;
+    line-height: 1.25em;
 }
 header{
-    width:100%;
-    padding:30px;
-    box-sizing:border-box;
+    /* width:100%; */
+    /* box-sizing:border-box; */
 }
 
 header ul{
     display:flex;
-    gap: 30px;
 }
 
 header ul li{
-    width:120px;
-    height:120px;
-    border-radius:5px;
+    width: 105px;
+    height: 90px;
+    border-radius: 3px;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -29,21 +31,28 @@ header ul li:hover{
     background-color:#ffffff40;
 }
 header ul li a{
+    display: flex;
     color:#fff;
     text-shadow:1px 1px #000;
     text-align:center;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    width: inherit;
+    height: inherit;
 }
 
 header img{
-    height:80px;
+    height: 50px;
 }
 
 
 footer{
     position:absolute;
-    bottom:0;
+    inset: auto 0 0;
     width: 100%;
-    height: 95px;
+    height: 47px;
     background-color: #DFEDF7;
     border-top: 1px solid #ccc;
     padding:0 40px;
@@ -52,25 +61,24 @@ footer{
     align-items: center;
     justify-content: space-between;
 }
-
+footer > *:not(.app){
+    z-index:1;
+}
 footer ul{
     display: flex;
     justify-content: center;
     align-items:center;
-    line-height: 1.5rem;
 }
 footer .app{
-    gap: 60px;
-    text-align:right;
+    gap: 20px;
     position: absolute;
     inset: 0;
-    margin: auto;
 }
 footer .app li{
     position:relative;
-    width: 80px;
-    height: 75px;
-    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,14 +91,14 @@ footer .app li.active::after{
     content:'';
     position:absolute;
     bottom:0;
-    width: 30px;
-    height:7px;
+    width: 18px;
+    height: 4px;
     border-radius:10px;
     background-color:#0075ce;
 }
 
 footer .app img{
-    width: 50px;
+    width: 27px;
 }
 
 footer .etc{

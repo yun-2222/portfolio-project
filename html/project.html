@@ -55,8 +55,6 @@
                         </div> -->
                       
                         <div class="footer">
-                            <button class="zoom_out">축소</button>
-                            <button class="zoom_in">확대</button>
                             <div class="swiper-button-prev"></div>
                             <div class="swiper-button-next"></div>
                             <div class="swiper-pagination"></div>
@@ -66,29 +64,10 @@
             </section>
         </div>
     </body>
-    <!-- <script>
-        fetch('../assets/js/project.json')
-            .then((response) =>{
-                if(!response.ok){
-                    throw new Error("400 아님 500 에러남");
-                }
-                return response.json()
-            })  
-            .then((결과) =>{
-                console.log(결과)
-                for (let i = 0; i < data.length; i++) {
-                    const element = array[i];
-                }
-            })
-            .catch(()=>{
-                console.log('에러남')
-            })
-    </script> -->
-
-    <!-- JSON 데이터를 HTML 내부에 포함 -->
-    <script id="json-data" type="application/json">
-        [
-            {
+    <script>
+        // data
+        const jsonData =[
+        {
                 "file":"비상 수학 교과서",
                 "image":[1,2,3,4,5,6,7,8,9],
                 "comment":"특이사항 없음",
@@ -131,16 +110,9 @@
                 "no":2
             }
         ]
-    </script>
 
-    <script>
-        // JSON 데이터 가져오기
-        const jsonData = document.getElementById('json-data').textContent;
-        const parsedData = JSON.parse(jsonData);    
-        let footer = document.querySelector(".footer");
-
-        parsedData.map(function(data,arr){
-            // info
+        jsonData.map(function(data,arr){
+            // 정보
             let info = document.createElement('div');
             info.setAttribute('class', 'info');
             
@@ -148,49 +120,52 @@
             let dt1 = document.createElement('dt');
             let dd1= document.createElement('dd');
             name.appendChild(dt1).innerText = "프로젝트 이름: ";
-            name.appendChild(dd1).innerText = parsedData[arr].file;
+            name.appendChild(dd1).innerText = jsonData[arr].file;
 
             let date = document.createElement('dl');
             let dt2 = document.createElement('dt');
             let dd2= document.createElement('dd');
             date.appendChild(dt2).innerText = "프로젝트 기간: ";
-            date.appendChild(dd2).innerText = parsedData[arr].date;
+            date.appendChild(dd2).innerText = jsonData[arr].date;
 
             let comment = document.createElement('dl');
             let dt3 = document.createElement('dt');
             let dd3= document.createElement('dd');
             comment.appendChild(dt3).innerText = "코멘트: ";
-            comment.appendChild(dd3).innerText = parsedData[arr].comment;
+            comment.appendChild(dd3).innerText = jsonData[arr].comment;
 
             info.append(name);
             info.append(date);
             info.append(comment);
 
-            //image
+            //이미지
             let ul = document.createElement('ul');
-            
-            for (let i = 0; i < parsedData[arr].image.length; i++) {
+            for (let i = 0; i < jsonData[arr].image.length; i++) {
                 let li = document.createElement('li');
                 let img = document.createElement('img');
-                img.src = `../assets/image/folder/`+ parsedData[arr].file + `/`+ (i + 1)+`.webp`;
+                img.src = `../assets/image/folder/`+ jsonData[arr].file + `/`+ (i + 1)+`.webp`;
 
-                ul.append(li);
+                ul.append(li)
                 li.append(img);
             }
 
-            // 전체 slide
+            // 전체 슬라이드
+            let inner = document.createElement('div');
+            inner.setAttribute("class", "inner");
+            inner.append(info);
+            inner.append(ul);
+
             let slide = document.createElement('div');
             slide.setAttribute("class", "swiper-slide");
-            slide.append(info);
-            slide.append(ul);
+            slide.append(inner);
 
             let wrapper = document.querySelector('.main .swiper-wrapper');
             wrapper.append(slide);
        
         });
+        
 
-        let currentIdx = 0;
-        //swiper slide
+        //스와이퍼 슬라이드
         var swiper = new Swiper(".mySwiper", {
             speed:0,
             effect: "fade",
@@ -202,47 +177,6 @@
                 el: ".swiper-pagination",
                 clickable: true,
             },
-            on:{
-                slideChange : function(x){
-                    currentIdx = swiper.activeIndex;
-                    console.log("넘어감");
-                    console.log(swiper.previousIndex);
-                    zoomFn();     
-                }
-            }
-        });
-
-
-        
-        // 이미지 확대 
-        let zoom = 100;
-        let zoomInBtn = document.querySelector(".footer .zoom_in");
-        let zoomOutBtn = document.querySelector(".footer .zoom_out");
-        let slide = document.querySelectorAll('.main .swiper-slide');
-        let zoomTg = slide[currentIdx].querySelector('.main ul');
-        let zoomFn;
-        parsedData.forEach((number, index) => {
-            zoomIn = () =>{
-                zoom = zoom + 20;
-                if(zoom >= 300) zoom = 300;
-                zoomTg.style.transform = `scale(`+ zoom + `%)`;
-            }
-    
-            zoomOut = () =>{
-                zoom = zoom - 10;
-                if(zoom <= -200) zoom = -200; 
-                zoomTg.style.transform = `scale(`+ zoom + `%)`;
-            }
-
-            zoomFn = () =>{
-                if(currentIdx == footer.dataset.num){
-                    zoomInBtn.onclick = () => zoomIn();
-                    zoomOutBtn.onclick = () => zoomOut();
-                }else{
-                    zoom = 100;
-                }
-            }
-            zoomFn();
         });
     </script>
 </html>
