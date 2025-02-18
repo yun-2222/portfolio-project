@@ -2,17 +2,13 @@
 
 #wrap{
     position:relative;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    background: url(../image/background1.jpg)no-repeat center/100%;
-    font-size: 16px;
+    background: url(../image/background1.jpg)no-repeat center/ cover;
+    font-size: 12px;
     padding: 5px;
     box-sizing: border-box;
     line-height: 1.25em;
-}
-header{
-    /* width:100%; */
-    /* box-sizing:border-box; */
 }
 
 header ul{
@@ -20,8 +16,8 @@ header ul{
 }
 
 header ul li{
-    width: 105px;
-    height: 90px;
+    width: 100px;
+    height: 85px;
     border-radius: 3px;
     display:flex;
     justify-content:center;
@@ -44,7 +40,7 @@ header ul li a{
 }
 
 header img{
-    height: 50px;
+    height: 45px;
 }
 
 
@@ -55,7 +51,7 @@ footer{
     height: 47px;
     background-color: #DFEDF7;
     border-top: 1px solid #ccc;
-    padding:0 40px;
+    padding: 0 20px;
     box-sizing:border-box;
     display: flex;
     align-items: center;
@@ -63,6 +59,16 @@ footer{
 }
 footer > *:not(.app){
     z-index:1;
+}
+footer .weather{
+    display:flex;
+    align-items: center;
+}
+footer .weather img{
+    width: 35px;
+}
+footer .weather .wind{
+    color: #696969
 }
 footer ul{
     display: flex;
@@ -82,6 +88,7 @@ footer .app li{
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
 }
 footer .app li:hover{
     background-color: rgba(255,255,255,0.5);
@@ -102,12 +109,12 @@ footer .app img{
 }
 
 footer .etc{
-    gap: 30px;
+    gap: 20px;
     text-align:right;
 }
 
 footer .etc img{
-    width: 25px;
+    width: 15px;
 }
 
 /* main */
