@@ -1,21 +1,8 @@
 @charset "utf-8";
 
-
-.folder_popup{
-    position: absolute;
-    inset: 0;
-    width: 1300px;
-    height: 900px;
-    border-radius: 15px;
-    box-shadow: 0 0 80px rgba(0,0,0,0.3);
-    margin: auto;
-    border: 2px solid #aaaaab;
-    overflow: hidden;
-}
-
 .folder_popup .header .h_bot {
     background: #eff6f9;
-    height:96px;
+    height: 46px;
     display:flex;
     align-items:center;
     padding: 0 15px;
@@ -26,21 +13,19 @@
 
 .folder_popup .header .h_bot > *{
     display:flex;
-    height:60px;
-    border-radius:10px;
+    height: 30px;
+    border-radius: 5px;
     align-items: center;
 }
 
 .folder_popup .header .h_bot .nav{
-    gap: 30px;
+    gap: 15px;
 }
 
 .folder_popup .header .h_bot .nav button{
-    display: flex;
-    width:60px;
-    justify-content: center;
-    align-items: center;
     border-radius: 8px;
+    width: 30px;
+    height: 30px;
 }
 .folder_popup .header .h_bot .nav button:hover{
     background:#e8edef;
@@ -53,14 +38,14 @@
 }
 
 .folder_popup .header .h_bot img{
-    width: 28px;
+    width: 15px;
 }
 
 .folder_popup .header .h_bot .address {
     display: flex;
     background: #fafcfd;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 10px;
     box-sizing: border-box;
     gap: 20px;
     flex: 3;
@@ -75,11 +60,11 @@
 
 .folder_popup .header .h_bot .search {
     position: relative;
-    flex: 1;
     gap:10px;
     background: #fafcfd;
-    padding: 0 20px;
+    padding: 0 10px;
     box-sizing: border-box;
+    flex: 1;
 }
 .folder_popup .header .h_bot .search label{display:none}
 .folder_popup .header .h_bot .search input{border:none;background:transparent;height: 100%;}
@@ -99,19 +84,19 @@
     display: flex;
     padding: 0 5px;
     box-sizing: border-box;
-    font-size: 25px;
-    height: 681px;
+    font-size: 12px;
+    height: calc(100% - 114px);
     transition: 0.3s;
 }
 
 .folder_popup .main .aside{
     position: relative;
-    width: 425px;
+    width: 195px;
     overflow-y: auto;
     margin-right: 10px;
 }
 .folder_popup .main .aside::-webkit-scrollbar{
-    width: 33px;
+    width: 20px;
     border: none;
 }
 .folder_popup .main .aside::-webkit-scrollbar-track{
@@ -119,11 +104,11 @@
 } 
 .folder_popup .main .aside::-webkit-scrollbar-thumb{
     background-color: #858585;
-    border: 7px solid #f0f0f0;
-    border-radius: 8px;
+    border: 4px solid #f0f0f0;
+    border-radius: 5px;
 }
 .folder_popup .main .aside::-webkit-scrollbar-button{
-    height: 30px;
+    height: 10px;
     background-color: #f0f0f0;
 }
 
@@ -131,23 +116,25 @@
 
 .folder_popup .main .aside ul:first-child{
     padding-top: 10px;
-    margin-bottom: 64px;
+    margin-bottom: 50px;
     position: relative;
 }
 .folder_popup .main .aside ul:first-child::after{
     content:'';
-    width: calc(100%  - 20px);
+    width: calc(100%  - 5px);
     height:1px;
     background:#ccc;
     position: absolute;
-    top: calc(100% + 32px);
+    top: calc(100% + 25px);
+    left: 0;
+    right: 0;
 }
 .folder_popup .main .aside ul:last-child{
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
 .folder_popup .main .aside li{
-    height:65px;
-    padding-left: 65px;
+    height: 30px;
+    padding-left: 25px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     display:flex;
@@ -164,14 +151,14 @@
 .folder_popup .main .aside li.pin:after{
     content:'';
     background: url(../image/icon/pin_icon.png)no-repeat center/contain;
-    width: 25px;
-    height: 25px;
+    width: 12px;
+    height: 12px;
     position: absolute;
     right: 15px;
 }
 .folder_popup .main .aside li p{
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
 }
 .folder_popup .main .aside li img{
     object-fit:contain;
@@ -194,12 +181,13 @@
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 
 .folder_popup .main .contents [class^="con"] li{
-    width: 220px;
-    min-height: 240px;
+    width: 130px;
+    min-height: 130px;
     text-align: center;
     border-radius: 3px;
     display: flex;
@@ -211,8 +199,8 @@
     box-sizing: border-box;
 } 
 .folder_popup .main .contents [class^="con"] li p{
-    width:188px;
-    height:188px;
+    width: 100px;
+    height: 100px;
 }
 .folder_popup .main .contents [class^="con"] li img{
     object-fit:contain;
@@ -229,8 +217,10 @@
 
 /* footer */
 .folder_popup .footer{
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    height: 46px;
+    height: 26px;
     display: flex;
     justify-content: space-between;
     align-items:center;

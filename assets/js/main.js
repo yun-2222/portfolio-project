@@ -14,13 +14,8 @@ window.onload = () =>{
 			.then(data=> {
 			let temper = data.main.temp;
 			let weather = data.weather[0].description;
-        	console.log( temper, weather);
-
-			const icon = data.weather[0].icon;
-			console.log(icon)
-			console.log(weatherIcon)
 			weatherIcon.src = `https://openweathermap.org/img/wn/10d@2x.png`;
-			
+
 			temp.textContent = Math.floor(temper)  + "℃";
 			wind.textContent = weather;
 			
@@ -54,6 +49,85 @@ window.onload = () =>{
 	}
 
 	//팝업열림
+	const articles = document.querySelectorAll('article[data-step]');
+	const headerAppLis = document.querySelectorAll('header .app > li');
+	let clickCount = 0;
+	headerAppLis.forEach(headerAppLi => {
+		headerAppLi.onclick = () => {
+			let isMatch = false;
+			articles.forEach(article => {
+				if(article.dataset.step == headerAppLi.dataset.step){
+					isMatch = true;
+					article.classList.toggle('active');
 
+					if(article.classList.contains('active')){
+						article.style.top = (50 * (clickCount + 1)) + "px";
+						article.style.left = (50 * (clickCount + 1)) + "px";
+						article.style.zIndex = 1 + clickCount;
+						clickCount++;
+
+					}else{
+						article.style.top =  "0px";
+						article.style.left = "0px";		
+						article.style.zIndex = "0";
+						clickCount = Math.max(0, clickCount - 1);
+					}
+				}
+			});
+		}; 
+	}); 
+		
+
+	// footer appBtn active 추가
+	const appBtns = document.querySelectorAll('footer .app > li');
+	function footerApp() {
+		appBtns.forEach(appBtn =>{
+			appBtn.onclick = () =>{
+				appBtn.classList.toggle('active');
+			}
+		});
+	}
+
+
+		
+	// all btn
+	const closeBtns = document.querySelectorAll(".all_btn .close_btn");
+	const maxBtns = document.querySelectorAll(".all_btn .max_btn");
+	const miniBtns = document.querySelectorAll(".all_btn .mini_btn");
+	
+	// 닫기 버튼
+	closeBtns.forEach(closeBtn => {
+		closeBtn.onclick = () => {
+			let closestArticle = closeBtn.closest('article');
+			closestArticle.classList.remove('active');
+		} 
+	});
+
+	//최대화
+	maxBtns.forEach(maxBtn => {
+		maxBtn.onclick = () => {
+			let closestArticle = maxBtn.closest('article');
+			closestArticle.classList.toggle('max');
+		} 
+	});
+
+	//최소화
+	miniBtns.forEach(miniBtn => {
+		miniBtn.onclick = () => {
+		let closestArticle = miniBtn.closest('article');
+			closestArticle.classList.add('min');
+			closestArticle.classList.remove('active');
+		} 
+	});
+
+	function miniBtnRemoveFn(){
+		miniBtns.forEach(miniBtn => {
+			let closestArticle = miniBtn.closest('article');
+			closestArticle.classList.remove('min');
+			if(closestArticle.classList.contains('min')&&closestArticle.classList.contains('active')){
+				closestArticle.classList.remove('min');
+			}
+		})
+	}
 
 }
