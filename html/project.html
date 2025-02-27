@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>my project</title>
         <link rel="stylesheet" href="../assets/css/reset.css">
+        <link rel="stylesheet" href="../assets/css/main.css">
         <link rel="stylesheet" href="../assets/css/project.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -14,11 +15,11 @@
             <section class="header">
                 <div class="h_top">
                     <span><img src="../assets/image/icon/picture_icon.png" alt="갤러리 아이콘"></span>
-                    <p>file //파일 명</p>
+                    <!-- <p>file //파일 명</p> -->
                     <div class="all_btn">
-                        <button class="mini_btn"><span></span></button>
-                        <button class="max_btn"><span></span></button>
-                        <button class="close_btn"><span></span></button>
+                        <a href="../index.html"><button class="mini_btn"><span></span></button></a>
+                        <a href="../index.html"><button class="max_btn"><span></span></button></a>
+                        <a href="../index.html"><button class="close_btn"><span></span></button></a>
                     </div>
                 </div>
                 <div class="h_bot">
@@ -45,7 +46,7 @@
                                 </dl>
                                 <dl class="comment">
                                     <dt>코멘트</dt>
-                                    <dd>comment //어쩌구저쩌구</dd>
+                                    <dd>comment</dd>
                                 </dl>
                             </div>
                                 
@@ -67,20 +68,6 @@
     <script>
         // data
         const jsonData =[
-        {
-                "file":"비상 수학 교과서",
-                "image":[1,2,3,4,5,6,7,8,9],
-                "comment":"특이사항 없음",
-                "date":"23.01.01 ~ 23.01.01",
-                "no":1
-            },
-            {
-                "file":"미래엔 영어 교과서",        
-                "image":[1,2,3,4,5,6],
-                "comment":"특이사항 없음",
-                "date":"23.01.01 ~ 23.01.01",
-                "no":2
-            },
             {
                 "file":"비상 수학 교과서",
                 "image":[1,2,3,4,5,6,7,8,9],
@@ -96,20 +83,43 @@
                 "no":2
             },
             {
-                "file":"비상 수학 교과서",
+                "file":"천재 일본어 교과서",        
+                "image":[1,2,3,4,5,6,7],
+                "comment":"특이사항 없음",
+                "date":"23.01.01 ~ 23.01.01",
+                "no":3
+            },
+            {
+                "file":"미래엔 디지털 초코",
                 "image":[1,2,3,4,5,6,7,8,9],
                 "comment":"특이사항 없음",
                 "date":"23.01.01 ~ 23.01.01",
-                "no":1
+                "no":4
             },
             {
-                "file":"미래엔 영어 교과서",        
+                "file":"비상 두두 ai 스픽온",        
+                "image":[1,2,3,4,5,6,7,8,9],
+                "comment":"특이사항 없음",
+                "date":"23.01.01 ~ 23.01.01",
+                "no":5
+            },
+            {
+                "file":"비상 진도",
                 "image":[1,2,3,4,5,6],
                 "comment":"특이사항 없음",
                 "date":"23.01.01 ~ 23.01.01",
-                "no":2
+                "no":6
+            },
+            {
+                "file":"비상 두두 잉글리시 그래머",        
+                "image":[1,2,3,4,5,6,7,8,9],
+                "comment":"특이사항 없음",
+                "date":"23.01.01 ~ 23.01.01",
+                "no":7
             }
         ]
+
+
 
         jsonData.map(function(data,arr){
             // 정보
@@ -161,8 +171,15 @@
 
             let wrapper = document.querySelector('.main .swiper-wrapper');
             wrapper.append(slide);
-       
         });
+        
+        let currentIndex = 0;
+        let hTop = document.querySelector('.h_top');
+        let fileName = document.createElement('p');
+        function fileNameChangeFn(){
+            fileName.innerText = `file // ` + jsonData[currentIndex].file + ` [` + jsonData[currentIndex].no + `/` + jsonData.length + `]`; 
+            hTop.append(fileName);
+        }
         
 
         //스와이퍼 슬라이드
@@ -177,6 +194,13 @@
                 el: ".swiper-pagination",
                 clickable: true,
             },
+            on: {
+                init:fileNameChangeFn(),
+                slideChange: function () {
+                    currentIndex = swiper.activeIndex;
+                    fileNameChangeFn();
+                }
+            }
         });
     </script>
 </html>

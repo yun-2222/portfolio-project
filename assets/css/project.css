@@ -3,44 +3,18 @@
 .project_popup{
     position: absolute;
     inset: 0;
-    width: 1300px;
-    height: 900px;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     box-shadow: 0 0 80px rgba(0,0,0,0.3);
     margin: auto;
-    border: 2px solid #aaaaab;
+    /* border: 1px solid #aaaaab; */
     overflow: hidden;
     box-sizing: border-box;
 }
 
-.project_popup .header .all_btn {
-    position:absolute;
-    right: 12px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height: calc(100% - 1px);
-}
-
-.project_popup .header button{
-    position:relative;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.project_popup .header .all_btn button{
-    width: 100px;
-    height: 100%;
-    transition: 0.3s;
-}
-
-.project_popup .header .mini_btn span{width: 25px;height: 2px;background-color: #fff;border-radius: 3px;}
-.project_popup .header .max_btn span{width: 20px;height: 20px;border: 2px solid #fff;border-radius: 3px;}
-.project_popup .header .close_btn span{position: relative;width: 35px;height: 35px;}
-    .close_btn span::before{content: '';width: 100%;height: 2px;position: absolute;left: 0;top: 50%;rotate:45deg;background-color: #fff;}
-.close_btn span::after{content: '';width: 100%;height: 2px;position: absolute;left: 0;top: 50%;rotate:-45deg;background-color: #fff;}
+.header .all_btn .mini_btn span,
+.header .all_btn button span::before,
+.header .all_btn button span::after{background-color: #fff;}
+.header .all_btn .max_btn span{border-color:#fff;}
 
 .project_popup .header .all_btn button:hover{
     background:#959595;   
@@ -56,15 +30,19 @@
 }
 
 .project_popup .header .h_top{
-    position: relative;
-    height: 60px;
-    display:flex;
-    align-items: center;
-    padding: 0 15px;
     background: #444;
-    border-bottom: 2px solid #fff;
+    border-bottom: 1px solid #fff;
     color: #fff;
     gap: 20px;
+    align-items: center;
+}
+
+.project_popup .header .h_top p{
+    position:absolute;
+    left: 70px;
+}
+.project_popup .header .h_top p.on{
+    opacity: 1;
 }
 
 .project_popup .header .h_top > span{
@@ -74,36 +52,37 @@
     box-sizing: border-box;
 }
 .project_popup .header .h_top > span img{
-    width:40px
+    width: 30px;
 }
 
 .project_popup .header .h_bot {
     background: #dde3e8;
-    height: 52px;
+    height: 42px;
     display:flex;
     align-items:center;
     padding: 0 25px;
     gap: 20px;
     justify-content: space-between;
+    font-size: 15px;
 }
 
 .project_popup .header .h_bot li:last-child::before{
     content:'i';
-    width: 25px;
-    height: 25px;
+    width: 17px;
+    height: 17px;
     border-radius: 50%;
-    border: 1px solid #000;
+    border: 1px solid #898989;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
-    margin-right: 10px;
+    font-size: 14px;
+    margin: 2px 5px 0 0;
 }
 
 .project_popup .header .h_bot ul{
     display:flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .project_popup .header .h_bot li{
@@ -111,10 +90,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #898989;
 }
 
 .project_popup .header .h_bot img{
-    width: 28px;
+    width: 20px;
+    transform: scaleX(-1);
 }
 
 
@@ -122,25 +103,19 @@
 /* main */
 .project_popup .main{
     position:relative;
-    font-size: 25px;
     color: #fff;
-    height: calc(100% - 114px);
+    height: calc(100% - 83px);
 }
 .project_popup .main .swiper .swiper-slide{
     background: #202020;
 }
 
-.project_popup .main .swiper .swiper-slide .inner{
-    width:inherit;
-    height:inherit;
-}
-
 .project_popup .main .swiper .info{
     position:absolute;
-    top: 50px;
+    top: 40px;
     left: 40px;
     text-shadow: 1px 0px 5px #000,0px 1px 5px #000,-1px 0px 5px #000,0px -1px 5px #000;
-    line-height: 44px;
+    line-height: 30px;
     z-index: 1;
 }
 
@@ -160,10 +135,9 @@
 .project_popup .main .swiper ul{
     display:flex;
     flex-wrap: wrap;
-    align-items: center;
-    height: 100%;
-    gap: 30px 0px;
-    padding: 0 50px 0;
+    width: 100%;
+    gap: 10px;
+    padding: 30px 50px;
     box-sizing: border-box;
     align-content: center;
     justify-content: space-between;
@@ -172,24 +146,24 @@
 
 .project_popup .main .swiper li{
    width: 32%;
-    pointer-events:none
+   pointer-events:none
 }
 .project_popup .main .swiper li img{
    width: 100%;
 }
 
 .project_popup .main .swiper .footer{
-    width: calc(100% - 250px);
-    height: 90px;
+    width: 450px;
+    height: 50px;
     background: rgb(90 90 90 / 80%);
     border-radius: 50px;
     position: absolute;
     margin: auto;
-    inset: auto 0 55px;
+    inset: auto 0 45px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 0 30px;
+    padding: 0 20px;
     box-sizing: border-box;
     z-index: 1;
 }
@@ -198,8 +172,8 @@
 }
 
 .project_popup .main .swiper .footer .swiper-pagination{
-    width: 300px;
-    height: 60px;
+    width: fit-content;
+    height: 40px;
     border-radius: 50px;
     background: rgba(0,0,0,.5);
     display: flex;
@@ -208,8 +182,8 @@
 }
 
 .project_popup .main .swiper .footer .swiper-pagination-bullet{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background:transparent;
     color: transparent;
     transition: 0.1s;
@@ -219,14 +193,10 @@
     background:#d2d2d2;
 }
 
-.project_popup .main .swiper .footer .swiper-pagination:hover .swiper-pagination-bullet{
-    width: 45px;
-    height: 45px;
-}
 .project_popup .main .swiper .footer .swiper-button-prev,
 .project_popup .main .swiper .footer .swiper-button-next{
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background: #88888878;
     margin: 0;
@@ -240,7 +210,7 @@
 .project_popup .main .swiper .footer .swiper-button-prev:after, .swiper-rtl .swiper-button-next:after,
 .project_popup .main .swiper .footer .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
     color:#fff;
-    font-size:30px;
+    font-size: 15px;
 }
 
 

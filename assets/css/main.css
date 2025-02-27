@@ -9,6 +9,8 @@
     padding: 5px;
     box-sizing: border-box;
     line-height: 1.25em;
+    overflow: hidden;
+    cursor: default;
 }
 
 header ul{
@@ -19,20 +21,21 @@ header ul li{
     width: 100px;
     height: 85px;
     border-radius: 3px;
+}
+header ul li a{
+    height: 100%;
+    width: 100%;
     display:flex;
     justify-content:center;
     align-items:center;
-    color:#fff;
-    text-shadow:1px 1px #000;
-    text-align:center;
     flex-direction: column;
     gap: 5px;
+    color:#fff;
+    text-shadow:1px 1px #000;
 }
+ 
 header ul li:hover{
     background-color:#ffffff40;
-}
-header ul li a{
-
 }
 
 header img{
@@ -52,6 +55,7 @@ footer{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 100;
 }
 footer > *:not(.app){
     z-index:1;
@@ -86,17 +90,18 @@ footer .app li{
     align-items: center;
     box-sizing: border-box;
 }
-footer .app li:hover{
+footer .app li:hover,
+footer .app li.active{
     background-color: rgba(255,255,255,0.5);
     border:1px solid #ccc
 }
-footer .app li.active::after{
+footer .app li.on::after{
     content:'';
     position:absolute;
     bottom:0;
-    width: 18px;
-    height: 4px;
-    border-radius:10px;
+    width: 15px;
+    height: 3px;
+    border-radius: 50px;
     background-color:#0075ce;
 }
 
@@ -119,11 +124,11 @@ footer .etc img{
     inset: 0 0 0 70px;
     margin: auto;
     box-sizing: border-box;
-    width: 700px;
+    width: 650px;
     height: 450px;
-    border-radius: 15px;
+    border-radius: 7px;
     box-shadow: 0 0 80px rgba(0,0,0,0.3);
-    border: 1px solid #aaaaab;
+    border: 1px solid #b9b7b9;
     overflow: hidden;
     background: #fff;
     font-size: 12px;
@@ -139,6 +144,7 @@ footer .etc img{
     inset:0 0 47px 0;
     border-radius: 0;
     border: none;
+    box-shadow: none;
 }
 #wrap article.min{
     transform: scale(0) translateY(100%);
@@ -195,7 +201,6 @@ footer .etc img{
 }
 
 .header .h_top{
-    width: calc(100% - 30%);
     height: 40px;
     display:flex;
     align-items: flex-end;
@@ -205,7 +210,7 @@ footer .etc img{
 .header .h_top li {
     width:170px;
     height: 32px;
-    padding: 0 15px;
+    padding: 0 5px 0 15px;
     box-sizing: border-box;
     position: relative;
     border-top-left-radius: 10px;
@@ -282,7 +287,16 @@ footer .etc img{
 .header .h_top li img{
     width: 15px;
 }
-.header .h_top .close_btn span{
+.header .h_top li .close_btn{
+    width: 30px;
+    height: 20px;
+    border-radius: 5px;
+}
+.header .h_top li .close_btn span{
     width: 10px;
     height: 10px;
+}
+
+.header .h_top li .close_btn:hover{
+    background:#e8edef;
 }
