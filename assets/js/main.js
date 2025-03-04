@@ -53,20 +53,17 @@ window.onload = () =>{
 	const appLis = document.querySelectorAll('header .app > li, footer .app > li');
 	const footerAppLis = document.querySelectorAll('footer .app > li');
 	let clickCount = 0;
+
 	appLis.forEach(appLi => {
+		let isMatch = false;
 		appLi.onclick = () => {	
-			let isMatch = false;
 			articles.forEach(article => {
 				if(article.dataset.step == appLi.dataset.step){
 					isMatch = true;
+					clickCount++;
 					article.classList.toggle('active');
-					article.style = "none";
-					article.style.zIndex = "0";
-					
-					if(article.classList.contains('active')){
-						article.style.zIndex = 1 + clickCount;
-						clickCount++;
-					}
+					article.style.top = "";
+					article.style.margin = "auto";
 				}
 
 				footerAppLis.forEach(footerAppLi => {
@@ -76,55 +73,54 @@ window.onload = () =>{
 						footerAppLi.classList.remove('on');
 					}
 				});
+				
+				article.addEventListener('click',closeBtnFn);
+				article.addEventListener('click',maxBtnFn);
+				article.addEventListener('click',miniBtnFn);
+				article.addEventListener("mousedown", zIndexFn);
+				
+				article.querySelector('.header .h_top').addEventListener("mousedown", dragStart);
+				
 			}); 
-
 		}; 
 	}); 
 
 
+	function zIndexFn(e){
+		if(this.classList.contains('active')){
+			this.style.zIndex = clickCount;	
+		}
+	}
+
 	// all btn
-	const closeBtns = document.querySelectorAll(".close_btn");
-	const maxBtns = document.querySelectorAll(".all_btn .max_btn");
-	const miniBtns = document.querySelectorAll(".all_btn .mini_btn");
-	
-	// 닫기 버튼
-	closeBtns.forEach(closeBtn => {
-		closeBtn.onclick = () =>{
-			let closestArticle = closeBtn.closest('article');
-			closestArticle.classList.remove('active','max');
+	function closeBtnFn(e){
+		if(e.target.classList.contains('close_btn')){
+			this.classList.remove('active','max');
+			this.style.transform = '';
 		}
-	});
+	}
 
-
-	//최대화
-	maxBtns.forEach(maxBtn => {
-		maxBtn.onclick = () =>{
-			let closestArticle = maxBtn.closest('article');
-			closestArticle.classList.toggle('max');
-			closestArticle.removeAttribute("style");
+	function maxBtnFn(e){
+		if(e.target.classList.contains('max_btn')){
+			this.classList.toggle('max');
 		}
-	});
+	}
 
-
-	//최소화
-	miniBtns.forEach(miniBtn => {
-		miniBtn.onclick = () =>{
-			let closestArticle = miniBtn.closest('article');
-			closestArticle.classList.remove('active');
-			closestArticle.style.transform = "translateY(100%)";
-			closestArticle.style.top = "100%";
+	function miniBtnFn(e){
+		if(e.target.classList.contains('mini_btn')){
+			this.classList.remove('active');
+			this.style.top ="100vh";
+			this.style.margin = "0";
 		}
-	});
+	}
 
 
-
-	// 드래그 드랍
-	let dragObjs = document.querySelectorAll('article .header .h_top');
-	let _this;
-	let x = 0, y = 0;
+	// 드래그드랍
+	let positions = new Map(); 	
+	let isDrag = false;
 	let prevX = 0, prevY = 0;
 	let moveX = 0, moveY = 0;
-	let isDrag = false;
+	let _this = null;
 	
 	// 드래그 시작 함수
 	function dragStart(e) {
@@ -132,8 +128,12 @@ window.onload = () =>{
 		_this = this.closest('article');
 		prevX = e.clientX;
 		prevY = e.clientY;
+		clickCount++;
 	
-		// 이벤트 리스너 추가
+		if (!positions.has(_this)){
+			positions.set(_this, { x: 0, y: 0 });
+		}
+
 		document.addEventListener("mousemove", dragMove);
 		document.addEventListener("mouseup", dragEnd);
 	}
@@ -147,11 +147,15 @@ window.onload = () =>{
 			let deltaX = moveX - prevX;
 			let deltaY = moveY - prevY;
 	
-			x += deltaX;
-			y += deltaY;
+			let pos = positions.get(_this);
+			pos.x += deltaX;
+			pos.y += deltaY;
+			positions.set(_this, pos);
 	
-			_this.style.transform = `translate(${x}px, ${y}px)`;
-	
+			_this.style.transition = 'none';
+			_this.style.transform = `translate(${pos.x}px, ${pos.y}px)`;
+
+
 			prevX = moveX;
 			prevY = moveY;
 		}
@@ -161,15 +165,16 @@ window.onload = () =>{
 	function dragEnd() {
 		isDrag = false;
 		document.removeEventListener("mousemove", dragMove);
-		document.removeEventListener("mouseup", dragEnd); 
+		document.removeEventListener("mouseup", dragEnd);
+		_this.style.transition = '';
 	}
 	
-	// 드래그 핸들러 추가
-	dragObjs.forEach(dragObj => {
-		dragObj.addEventListener("mousedown", dragStart);
-	});
 
-	// 파일
+
+
+
+
+	// 파일 //
 	// folder 새로고침
 	const fileReload = document.querySelector('.refresh_btn');
 	fileReload.onclick = () =>{

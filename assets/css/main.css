@@ -33,6 +33,9 @@ header ul li a{
     color:#fff;
     text-shadow:1px 1px #000;
 }
+header ul li a > *{
+    pointer-events:none;
+}
  
 header ul li:hover{
     background-color:#ffffff40;
@@ -145,10 +148,13 @@ footer .etc img{
     border-radius: 0;
     border: none;
     box-shadow: none;
+    transform: translate(0,0) !important;
+    /* margin: 0; */
+    transform-origin: center;
 }
 #wrap article.min{
-    transform: scale(0) translateY(100%);
-    bottom: -100%;
+    transform: scale(0) translateY(100%) !important;
+    top: 100%;
 }
 
 .header .all_btn {
