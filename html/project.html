@@ -121,7 +121,7 @@
 
 
 
-        jsonData.map(function(data,arr){
+        jsonData.forEach((data,index) => {
             // 정보
             let info = document.createElement('div');
             info.setAttribute('class', 'info');
@@ -130,19 +130,19 @@
             let dt1 = document.createElement('dt');
             let dd1= document.createElement('dd');
             name.appendChild(dt1).innerText = "프로젝트 이름: ";
-            name.appendChild(dd1).innerText = jsonData[arr].file;
+            name.appendChild(dd1).innerText = data.file;
 
             let date = document.createElement('dl');
             let dt2 = document.createElement('dt');
             let dd2= document.createElement('dd');
             date.appendChild(dt2).innerText = "프로젝트 기간: ";
-            date.appendChild(dd2).innerText = jsonData[arr].date;
+            date.appendChild(dd2).innerText = data.date;
 
             let comment = document.createElement('dl');
             let dt3 = document.createElement('dt');
             let dd3= document.createElement('dd');
             comment.appendChild(dt3).innerText = "코멘트: ";
-            comment.appendChild(dd3).innerText = jsonData[arr].comment;
+            comment.appendChild(dd3).innerText = data.comment;
 
             info.append(name);
             info.append(date);
@@ -150,10 +150,10 @@
 
             //이미지
             let ul = document.createElement('ul');
-            for (let i = 0; i < jsonData[arr].image.length; i++) {
+            for (let i = 0; i < data.image.length; i++) {
                 let li = document.createElement('li');
                 let img = document.createElement('img');
-                img.src = `../assets/image/folder/`+ jsonData[arr].file + `/`+ (i + 1)+`.webp`;
+                img.src = `../assets/image/folder/`+ data.file + `/`+ (i + 1)+`.webp`;
 
                 ul.append(li)
                 li.append(img);
@@ -167,21 +167,23 @@
 
             let slide = document.createElement('div');
             slide.setAttribute("class", "swiper-slide");
+            slide.setAttribute("id", data.no);
             slide.append(inner);
 
             let wrapper = document.querySelector('.main .swiper-wrapper');
             wrapper.append(slide);
+           
         });
-        
+
         let currentIndex = 0;
         let hTop = document.querySelector('.h_top');
         let fileName = document.createElement('p');
+        hTop.append(fileName);
         function fileNameChangeFn(){
             fileName.innerText = `file // ` + jsonData[currentIndex].file + ` [` + jsonData[currentIndex].no + `/` + jsonData.length + `]`; 
-            hTop.append(fileName);
         }
         
-
+  
         //스와이퍼 슬라이드
         var swiper = new Swiper(".mySwiper", {
             speed:0,
@@ -202,5 +204,9 @@
                 }
             }
         });
+
+        const params = new URLSearchParams(window.location.search);
+        swiper.slideTo(params.get("slide") || 0, 0);
+
     </script>
 </html>

@@ -6,7 +6,7 @@
     display:flex;
     align-items:center;
     padding: 0 15px;
-    gap: 20px;
+    gap: 10px;
     border-bottom: 1px solid #bfd6e1;
     border-top: 1px solid #bfd6e1;
 }
@@ -20,6 +20,7 @@
 
 .folder_popup .header .h_bot .nav{
     gap: 15px;
+    margin-right: 0px;
 }
 
 .folder_popup .header .h_bot .nav button{
@@ -61,18 +62,18 @@
     display: flex;
     background: #fafcfd;
     align-items: center;
-    padding: 0 10px;
+    padding: 0 15px;
     box-sizing: border-box;
-    gap: 20px;
-    flex: 3;
+    gap: 15px;
+    flex: 2;
+    color: #757575;
 }
-.folder_popup .header .h_bot .address li{
-    gap: 20px;
-    display: flex;
-    align-items: center;
-}
-.folder_popup .header .h_bot .address li:not(:last-child)::after{content: '>'; }
 
+.folder_popup .header .h_bot .address p::before{
+    content:'>';
+    padding-right:10px;
+    font-size:1rem;
+}
 
 .folder_popup .header .h_bot .search {
     position: relative;
@@ -81,16 +82,16 @@
     padding: 0 10px;
     box-sizing: border-box;
     flex: 1;
+    justify-content: space-between;
 }
 .folder_popup .header .h_bot .search label{display:none}
-.folder_popup .header .h_bot .search input{border:none;background:transparent;height: 100%;}
+.folder_popup .header .h_bot .search input{border:none;background:transparent;height: 100%;font-size: 1em;}
 .folder_popup .header .h_bot .search img{ width:20px;} 
 .folder_popup .header .h_bot .search .close_btn{width:70px;height:40px;position: absolute;right: 50px;}
 .folder_popup .header .h_bot .search .close_btn span{width:15px; height:15px;}
 [type="search"] {-webkit-appearance: textfield; }
 [type="search"]::-webkit-search-results-button{display: none;}
 [type="search"]::-webkit-search-cancel-button{
-    /* opacity: 0; */
     margin:0 30px;
 }
 
@@ -204,6 +205,7 @@
     align-content: flex-start;
     gap: 15px;
     display: none;
+    background: #fff;
 }
 
 .folder_popup .main .contents [class^="con"].active{
@@ -221,15 +223,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width:100%;
     height:100%;
+    overflow: hidden;
+    gap: 10px;
 }
 .folder_popup .main .contents [class^="con"] li a > *{
     pointer-events:none;
 }
 .folder_popup .main .contents [class^="con"] li img{
-    max-height: 75px;
+    width: 70px;
+}
+.folder_popup .main .contents .project li img{
+    width: 100px;
+    height:70px;
 }
 .folder_popup .main .contents [class^="con"] li:not(.active):hover{
     background-color:#e5f3ff;

@@ -8,32 +8,34 @@
         <link rel="stylesheet" href="./assets/css/main.css">
         <link rel="stylesheet" href="./assets/css/folder.css">
         <link rel="stylesheet" href="./assets/css/memo.css">
-        <script src="./assets/js/main.js"></script>
+        <script src="./assets/js/main.js" defer></script>
+        <script src="./assets/js/utils.js" defer></script>
+        <script src="./assets/js/folder.js" defer></script>
     </head>
     <body>
         <div id="wrap">
             <header>
                 <ul class="app">
-                    <li class="folder" data-step="1">
-                        <a href="#">
+                    <li class="folder">
+                        <a href="#" data-step="1">
                             <img src="./assets/image/icon/folder_icon.png" alt="프로젝트 아이콘">
                             <p>project</p>
                         </a>
                     </li>
-                    <li class="memo" data-step="2">
-                        <a href="#">
+                    <li class="memo">
+                        <a href="#" data-step="2">
                             <img src="./assets/image/icon/memo_icon.png" alt="자기소개 아이콘">
                             <p>about me</p>
                         </a>
                     </li>
-                    <li class="notion" data-step="3" target="_blank">
-                        <a href="https://www.notion.com/ko" target="_blank">
+                    <li class="notion">
+                        <a href="https://www.notion.com/ko" target="_blank" data-step="3">
                             <img src="./assets/image/icon/notion_icon.png" alt="노션 아이콘">
                             <p>notion</p>
                         </a>
                     </li>
-                    <li class="git" data-step="4" target="_blank">
-                        <a href="https://github.com/yun-2222/portfolio-project">
+                    <li class="git">
+                        <a href="https://github.com/yun-2222/portfolio-project"  target="_blank" data-step="4">
                             <img src="./assets/image/icon/github_icon.png" alt="깃허브 아이콘">
                             <p>git</p>
                         </a>
@@ -75,16 +77,15 @@
                             </button>
                             <button class="refresh_btn active"><img src="./assets/image/icon/refresh_icon.png" alt="새로고침 버튼"></button>
                         </div>
-                        <ul class="address">
-                            <li><img src="./assets/image/icon/home2_icon.png" alt="홈 아이콘"></li>
-                            <li>홈</li>
-                        </ul>
+                        <div class="address">
+                            <img src="./assets/image/icon/address3_icon.png" alt="프로젝트 아이콘">
+                            <p>프로젝트</p>
+                        </div>
                         <!-- input -->
                         <form action="" class="search">
                             <label for="user-search">홈 검색</label>
-                            <input type="search" nmae="q" id="user-search" placeholder="홈 검색" aria-label="사이트 내용을 통해 검색">
-                            <div class="close_btn"><span></span></div>
-                            <button type="submit"><img src="./assets/image/icon/search_icon.png" alt="검색 아이콘"></button>
+                            <input type="text" name="q" id="user-search" placeholder="검색" aria-label="사이트 내용을 통해 검색">
+                            <button type="button"><img src="./assets/image/icon/search_icon.png" alt="검색 아이콘"></button>
                         </form>
                     </div>
                 </section>
@@ -106,7 +107,7 @@
                             </li>
                         </ul>
                         <ul>
-                            <li class="tab4 pin">
+                            <li class="tab4 pin active">
                                 <img src="./assets/image/icon/folder_icon.png" alt="프로젝트 폴더 아이콘">  
                                 <p>프로젝트</p>
                             </li>
@@ -138,26 +139,26 @@
                     </div>
                     <div class="contents">
                         <ul class="con1">
-                            <li  class="folder" data-step="1">
-                                <a href="#">
+                            <li  class="folder">
+                                <a href="#" data-step="1">
                                     <img src="./assets/image/icon/folder_icon.png" alt="프로젝트 아이콘">
                                     <p>project</p>
                                 </a>
                             </li>
-                            <li class="memo" data-step="2">
-                                <a href="#">
+                            <li class="memo">
+                                <a href="#" data-step="2">
                                     <img src="./assets/image/icon/memo_icon.png" alt="자기소개 아이콘">
                                     <p>about me</p>
                                 </a>
                             </li>
-                            <li class="notion" data-step="3" target="_blank">
+                            <li class="notion">
                                 <a href="https://www.notion.com/ko" target="_blank">
                                     <img src="./assets/image/icon/notion_icon.png" alt="노션 아이콘">
                                     <p>notion</p>
                                 </a>
                             </li>
-                            <li class="git" data-step="4" target="_blank">
-                                <a href="https://github.com/yun-2222/portfolio-project">
+                            <li class="git">
+                                <a href="https://github.com/yun-2222/portfolio-project" target="_blank">
                                     <img src="./assets/image/icon/github_icon.png" alt="깃허브 아이콘">
                                     <p>git</p>
                                 </a>
@@ -165,54 +166,54 @@
                         </ul>
                         <ul class="con2"></ul>
                         <ul class="con3"></ul>
-                        <ul class="con4 project">
+                        <ul class="con4 project active">
                             <li>
-                                <a href="./html/project.html?swiper.activeIndex=1">
+                                <a href="./html/project.html?slide=0">
                                     <img src="./assets/image/folder/비상 수학 교과서/1.webp" alt="">
                                     <p>수학 교과서</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="./html/project.html?swiper.activeIndex=2">
+                                <a href="./html/project.html?slide=1">
                                     <img src="./assets/image/folder/미래엔 영어 교과서/1.webp" alt="">
                                     <p>영어 교과서</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="./html/project.html?slide=3">
                                     <img src="./assets/image/folder/미래엔 디지털 초코/1.webp" alt="">
                                     <p>디지털 초코</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="./html/project.html?slide=4">
                                     <img src="./assets/image/folder/비상 두두 ai 스픽온/1.webp" alt="">
                                     <p>스픽온</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="./html/project.html?slide=5">
                                     <img src="./assets/image/folder/비상 두두 잉글리시 그래머/1.webp" alt="">
                                     <p>두두 잉글리시 그래머</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="./html/project.html?slide=6">
                                     <img src="./assets/image/folder/비상 진도/1.webp" alt="">
                                     <p>비상 진도</p>
                                 </a>
                             </li>    
                         </ul>
                         <ul class="con5">
-                            <li class="memo" data-step="2">
-                                <a href="#">
+                            <li class="memo">
+                                <a href="#" data-step="2">
                                     <img src="./assets/image/icon/memo_icon.png" alt="자기소개 아이콘">
                                     <p>about me</p>
                                 </a>
                             </li>
                         </ul>
                         <ul class="con6">
-                            <li class="notion" target="_blank">
+                            <li class="notion">
                                 <a href="https://www.notion.com/ko" target="_blank">
                                     <img src="./assets/image/icon/notion_icon.png" alt="노션 아이콘">
                                     <p>notion</p>
@@ -220,8 +221,8 @@
                             </li>
                         </ul>
                         <ul class="con7">
-                            <li class="git" target="_blank">
-                                <a href="https://github.com/yun-2222/portfolio-project">
+                            <li class="git">
+                                <a href="https://github.com/yun-2222/portfolio-project" target="_blank">
                                     <img src="./assets/image/icon/github_icon.png" alt="깃허브 아이콘">
                                     <p>git</p>
                                 </a>
@@ -284,7 +285,7 @@
         
                 <section class="footer">
                     <p>줄 1, 열 1</p>
-                    <p>0자</p>
+                    <p class="length">0자</p>
                     <p>100%</p>
                     <p>Windows(CRLF)</p>
                     <p>UTF-8</p>
@@ -300,23 +301,23 @@
                     </div>
                 </div>
                 <ul class="app">
-                    <li  class="folder" data-step="1">
-                        <a href="#">
+                    <li  class="folder">
+                        <a href="#" data-step="1">
                             <img src="./assets/image/icon/folder_icon.png" alt="프로젝트 아이콘">
                         </a>
                     </li>
-                    <li class="memo" data-step="2">
-                        <a href="#">
+                    <li class="memo">
+                        <a href="#" data-step="2">
                             <img src="./assets/image/icon/memo_icon.png" alt="자기소개 아이콘">
                         </a>
                     </li>
-                    <li class="notion" data-step="3">
-                        <a href="https://www.notion.com/ko" target="_blank">
+                    <li class="notion">
+                        <a href="https://www.notion.com/ko" target="_blank" data-step="3">
                             <img src="./assets/image/icon/notion_icon.png" alt="노션 아이콘">
                         </a>
                     </li>
-                    <li class="git" data-step="4">
-                        <a href="https://github.com/yun-2222/portfolio-project">
+                    <li class="git">
+                        <a href="https://github.com/yun-2222/portfolio-project" target="_blank" data-step="4">
                             <img src="./assets/image/icon/github_icon.png" alt="깃허브 아이콘">
                         </a>
                     </li>
