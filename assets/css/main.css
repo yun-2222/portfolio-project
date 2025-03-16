@@ -68,7 +68,7 @@ footer .weather{
     align-items: center;
 }
 footer .weather img{
-    width: 35px;
+    width: 45px;
 }
 footer .weather .wind{
     color: #696969
@@ -128,11 +128,11 @@ footer .etc img{
 /* sub page 공통 */
 #wrap article{
     position: absolute;
-    top: calc(50% - 225px);
-    left: calc(50% - 325px);
+    top: calc(50% - 40vh);
+    left: calc(50% - 27vw);
     box-sizing: border-box;
-    width: 650px;
-    height: 450px;
+    width: 70vw;
+    height: 80vh;
     border-radius: 7px;
     box-shadow: 0 0 80px rgba(0,0,0,0.3);
     border: 1px solid #b9b7b9;
@@ -160,8 +160,8 @@ footer .etc img{
     top: 100%;
 }
 #wrap .memo_popup{
-    top: calc(50% - 200px);
-    left: calc(50% - 350px);
+    top: calc(50% - 44vh);
+    left: calc(50% - 24vw);
 }
 
 .header .all_btn {

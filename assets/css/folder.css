@@ -203,7 +203,7 @@
     flex-wrap: wrap;
     align-items: flex-start;
     align-content: flex-start;
-    gap: 15px;
+    gap: 7px 15px;
     display: none;
     background: #fff;
 }
@@ -228,6 +228,7 @@
     height:100%;
     overflow: hidden;
     gap: 10px;
+    text-align: center;
 }
 .folder_popup .main .contents [class^="con"] li a > *{
     pointer-events:none;

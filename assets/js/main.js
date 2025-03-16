@@ -156,10 +156,9 @@ function dragEnd() {
 // 메모
 const memoTextH3 = document.querySelector('.memo_popup .main h3');
 const memoTextP = document.querySelector('.memo_popup .main p');
-const memoTextSpan = document.querySelector('.memo_popup .main span');
 const memoTextLength = document.querySelector('.memo_popup .footer .length');
 console.log(memoTextH3.innerText.length)
-memoTextLength.innerHTML = memoTextH3.innerText.length +  memoTextP.innerText.length + memoTextSpan.innerText.length + `자`;  
+memoTextLength.innerHTML = memoTextH3.innerText.length +  memoTextP.innerText.length + `자`;  
 
 
 

@@ -1,30 +1,22 @@
 // 날씨
 const API_KEY = ("33dc461add1e8586dc4a13c5a70bf169");
-function onGeoOk(position){
-	const lat = position.coords.latitude;
-	const lng = position.coords.longitude;
-	const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric&lang=kr`
-	
-	const temp = document.querySelector('footer .temp');
-	const wind = document.querySelector('footer .wind');
-	const weatherIcon = document.querySelector('footer .weather_icon');
-	
-	fetch(url).then(response=> response.json())
-		.then(data=> {
-		let temper = data.main.temp;
-		let weather = data.weather[0].description;
-		weatherIcon.src = `https://openweathermap.org/img/wn/10d@2x.png`;
+const city = "Seoul";
+const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric&lang=kr`
 
-		temp.textContent = Math.floor(temper)  + "℃";
-		wind.textContent = weather;
-		
-	});	
-}	
-function onGeoEroor(){
-	alert("Can't find you. No weather for you")
-}
+const temp = document.querySelector('footer .temp');
+const wind = document.querySelector('footer .wind');
+const weatherIcon = document.querySelector('footer .weather_icon');
 
-navigator.geolocation.getCurrentPosition(onGeoOk, onGeoEroor);
+fetch(url).then(response=> response.json())
+	.then(data=> {
+	let temper = data.main.temp;
+	let weather = data.weather[0].description;
+	weatherIcon.src = `https://openweathermap.org/img/wn/10d@2x.png`;
+
+	temp.textContent = Math.floor(temper)  + "℃";
+	wind.textContent = weather;
+	
+});	
 
 
 // 날짜
@@ -33,7 +25,6 @@ let todayDate = new Date();
 let year = todayDate.getFullYear();
 let month = todayDate.getMonth();
 let date = todayDate.getDate();
-console.log(today)
 today.textContent = year + "-" + month.toString().padStart(2, '0') + "-" + date.toString().padStart(2, '0');
 
 //시간
