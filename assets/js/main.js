@@ -24,6 +24,7 @@ function clickBtnFn(e){
 		popup.addEventListener("mousedown", zIndexFn);
 		popup.querySelector('.header .h_top').addEventListener("mousedown", dragStart);
 		footerFn();
+		memoAnimatio();
 	}
 }
 
@@ -160,5 +161,54 @@ const memoTextLength = document.querySelector('.memo_popup .footer .length');
 console.log(memoTextH3.innerText.length)
 memoTextLength.innerHTML = memoTextH3.innerText.length +  memoTextP.innerText.length + `자`;  
 
+// 메모 에니메이션 
+const memo = document.querySelector('.memo_popup .main');
+for (let i = 0; i < 5; i++) {
+	let memoAni = document.createElement('span');
+	memoAni.setAttribute('class', 'aniObj');
+	memo.append(memoAni)
+}
+const memoAnis = document.querySelectorAll('.memo_popup .main span');
 
+function memoAnimatio(){
+	memoAnis.forEach(memoAni => {
+		let widht = Math.floor(Math.random() * 21) + 15;
+		let height = Math.floor(Math.random() * 11) + 20;
+		let [r,g,b] = [...Array(3)].map(()=>Math.floor(Math.random() * 210));
+		let radiusX = [...Array(4)].map(()=>Math.floor(Math.random() * 51) + 40)
+		let radiusY = [...Array(4)].map(()=>Math.floor(Math.random() * 51) + 40)
+		let rgba = `rgba(${r},${g},${b},0.2)`;
+		
+		function randomRadius(){
+			let randomX = radiusX.map(v=>v+(Math.floor(Math.random()*100)+ 1)).join('%') + '%'
+			let randomY = radiusY.map(v=>v+(Math.floor(Math.random()*100)+ 1)).join('%') + '%'
+			return `${randomX}/${randomY}`
+		}
+		let firstFrame = { borderRadius: randomRadius() };
+		console.log(Math.random() * 0.15 + 0.85)
+		let keyframes = Array.from({length:5},() =>({
+			borderRadius:randomRadius(),
+			scale:Math.random() * 0.15 + 0.85
+		}))
+			
+		keyframes.unshift(firstFrame);
+		keyframes.push(firstFrame);
+
+		let options = {
+			duration: 6000,
+			iterations: Infinity,
+			animationDeraction: 'alternate',
+			fill:'both'
+		}
+		memoAni.animate(keyframes,options);
+
+				
+		memoAni.style.width = `${widht}vw`;
+		memoAni.style.height = `${height}vh`;
+		memoAni.style.backgroundColor = rgba ;
+		memoAni.style.borderRadius = firstFrame;
+
+		
+	});
+}
 

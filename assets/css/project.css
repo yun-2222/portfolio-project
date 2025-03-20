@@ -131,8 +131,8 @@
     text-shadow: 2px 0px 2px #000,0px 2px 2px #000,-2px 0px 2px #000,0px -2px 2px #000;
     line-height: 1.7rem;
     z-index: 1;
-    font-size: 1rem;
-    padding:20px 25px;
+    font-size: 18px;
+    padding: 41px 65px;
     border-radius:25px;
     transition: 0.1s;
 }
@@ -149,7 +149,7 @@
 
 .project_popup .main .swiper .info dl:last-child dd{
     backdrop-filter: blur(10px);
-    border-radius: 20px;
+    /* border-radius: 20px; */
 }
 
 .project_popup .main .swiper{

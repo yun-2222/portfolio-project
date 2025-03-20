@@ -60,3 +60,8 @@ function changeTextFn(e){
 folderAsides.forEach(folderAside => folderAside.addEventListener('click',folderAsideClickFn));
 memoSections.forEach(memoSection => memoSection.addEventListener('click',clickBtnFn));
 folderSection.addEventListener('click', () => projectSection.classList.add('active'));
+
+
+
+
+	

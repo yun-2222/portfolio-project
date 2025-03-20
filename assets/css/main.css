@@ -1,16 +1,17 @@
 @charset "UTF-8";
 
+
 #wrap{
     position:relative;
     width: 100vw;
     height: 100vh;
     background: url(../image/background1.jpg)no-repeat center/ cover;
-    font-size: 12px;
     padding: 5px;
     box-sizing: border-box;
-    line-height: 1.25em;
     overflow: hidden;
     cursor: default;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 header ul{
@@ -131,11 +132,11 @@ footer .etc img{
     top: calc(50% - 40vh);
     left: calc(50% - 27vw);
     box-sizing: border-box;
-    width: 70vw;
-    height: 80vh;
-    border-radius: 7px;
+    width: 1230px;
+    height: 740px;
+    border-radius: 13px;
     box-shadow: 0 0 80px rgba(0,0,0,0.3);
-    border: 1px solid #b9b7b9;
+    border: 1px solid #9a9a9a;
     overflow: hidden;
     background: #fff;
     font-size: 12px;
@@ -313,3 +314,6 @@ footer .etc img{
 .header .h_top li .close_btn:hover{
     background:#e8edef;
 }
+
+
+

@@ -62,4 +62,6 @@ button > *{
 }
 *{
 	cursor: default;
+	font-family: "Noto Sans KR";
+    font-weight: 400;
 }

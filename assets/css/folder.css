@@ -66,7 +66,7 @@
     box-sizing: border-box;
     gap: 15px;
     flex: 2;
-    color: #757575;
+    color: #6e6e6e;
 }
 
 .folder_popup .header .h_bot .address p::before{
@@ -110,7 +110,7 @@
     position: relative;
     width: 195px;
     overflow-y: auto;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 .folder_popup .main .aside::-webkit-scrollbar{
     width: 20px;
@@ -193,17 +193,30 @@
     flex: 1;
     align-content: flex-start;
 }
+.folder_popup .main .contents::before{
+    content:'';
+    width:1px;
+    height: 100%;
+    position:absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #ededed;
+    z-index: 1;
+}
+
 .folder_popup .main .contents [class^="con"]{
     position: absolute;
     width: 100%;
-    height: 100%;
-    padding: 10px 15px 10px;
+    /* height: 100%; */
+    padding: 10px 20px;
     margin: auto;
     box-sizing: border-box;
     flex-wrap: wrap;
     align-items: flex-start;
     align-content: flex-start;
-    gap: 7px 15px;
+    gap: 7px 5px;
     display: none;
     background: #fff;
 }
@@ -213,17 +226,17 @@
 }
 
 .folder_popup .main .contents [class^="con"] li{
-    width: 120px;
-    height: 130px;
+    width: 130px;
+    height: fit-content;
     border-radius: 3px;
-    padding: 10px 0;
+    padding: 15px 0;
     box-sizing: border-box;
 } 
 .folder_popup .main .contents [class^="con"] li a{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width:100%;
     height:100%;
     overflow: hidden;
@@ -234,11 +247,11 @@
     pointer-events:none;
 }
 .folder_popup .main .contents [class^="con"] li img{
-    width: 70px;
+    width: 85px;
 }
 .folder_popup .main .contents .project li img{
-    width: 100px;
-    height:70px;
+    width: 115px;
+    height: 80px;
 }
 .folder_popup .main .contents [class^="con"] li:not(.active):hover{
     background-color:#e5f3ff;
