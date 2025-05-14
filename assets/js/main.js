@@ -1,3 +1,14 @@
+// 새창 열림(깃,노션)
+const links = document.querySelectorAll('a[target="_blank"]');
+function openWindowFn(e){
+	const newWindow = window.open(e.target.href);
+	if (newWindow) {
+		const sameLinks = document.querySelectorAll(`a[data-step="${e.target.dataset.step}"]`);
+		sameLinks.forEach(sameLink => {sameLink.closest('li').classList.add('on');});
+	} 
+}
+links.forEach(link => link.addEventListener('click',openWindowFn));
+
 //팝업열림
 const appBtns = document.querySelectorAll('header .app > li');
 const fAppBtns = document.querySelectorAll('footer .app > li');
@@ -18,11 +29,11 @@ function clickBtnFn(e){
 		if(clickCount < 100) clickCount++;
 		
 		
-		popup.addEventListener('click',closeBtnFn);
-		popup.addEventListener('click',maxBtnFn);
-		popup.addEventListener('click',miniBtnFn);
-		popup.addEventListener("mousedown", zIndexFn);
+		popup.querySelector('.close_btn').addEventListener('click',closeBtnFn);
+		popup.querySelector('.max_btn').addEventListener('click',maxBtnFn);
+		popup.querySelector('.mini_btn').addEventListener('click',miniBtnFn);
 		popup.querySelector('.header .h_top').addEventListener("mousedown", dragStart);
+		popup.addEventListener("mousedown", zIndexFn);
 		footerFn();
 		memoAnimatio();
 	}
@@ -36,53 +47,34 @@ appBtns.forEach((appBtn) => {appBtn.addEventListener('click',clickBtnFn)});
 fAppBtns.forEach((fAppBtn) => {fAppBtn.addEventListener('click',clickBtnFn)});  
 
 
-// 새창 열림(깃,노션)
-const links = document.querySelectorAll('a[target="_blank"]');
-function openWindowFn(e){
-	const newWindow = window.open(e.target.href);
-	if (newWindow) {
-		const sameLinks = document.querySelectorAll(`a[data-step="${e.target.dataset.step}"]`);
-		sameLinks.forEach(sameLink => {sameLink.closest('li').classList.add('on');});
-	} 
-}
-links.forEach(link => link.addEventListener('click',openWindowFn));
-
-
 // all btn
 let isFull = false;
-function closeBtnFn(e){
-	if(e.target.classList.contains('close_btn')){
-		this.classList.remove('active','max');
-		this.style.transform = '';
-		this.style.scale ="0";
-		positions.clear();
-		isFull = false;
-		footerFn();
-	}
+function closeBtnFn(){
+	let article = this.closest('article');
+	isFull = false;
+	footerFn();
+	positions.clear();
+	article.classList.remove('active','max');
+	article.style.transform = '';
+	article.style.scale ="0";
 }
 
-function maxBtnFn(e){
-	if(e.target.classList.contains('max_btn')){
-		this.classList.toggle('max');
-		if(!isFull && this.classList.contains('active')){
-			isFull = true;
-		} else{
-			isFull = false;
-		}
-	}
+function maxBtnFn(){
+	let article = this.closest('article');
+	article.classList.toggle('max');
+	!isFull && article.classList.contains('active')? isFull = true : isFull = false;
 }
 
-function miniBtnFn(e){
-	if(e.target.classList.contains('mini_btn')){
-		this.classList.remove('active');
-		this.style.top ="100vh";
-		this.style.scale ="0";
-	}
+function miniBtnFn(){
+	let article = this.closest('article');
+	article.classList.remove('active');
+	article.style.top ="100vh";
+	article.style.scale ="0";
 }
 
 //팝업 zindex
-function zIndexFn(e){
-	if(this.classList.contains('active')){
+function zIndexFn(){
+	if(this.classList.contains('active')) {
 		this.style.zIndex = clickCount;	
 	}
 }
@@ -154,14 +146,13 @@ function dragEnd() {
 	_this.style.transition = '';
 }
 
-// 메모
+// 메모장 하단
 const memoTextH3 = document.querySelector('.memo_popup .main h3');
 const memoTextP = document.querySelector('.memo_popup .main p');
 const memoTextLength = document.querySelector('.memo_popup .footer .length');
-console.log(memoTextH3.innerText.length)
 memoTextLength.innerHTML = memoTextH3.innerText.length +  memoTextP.innerText.length + `자`;  
 
-// 메모 에니메이션 
+// 메모장 에니메이션 
 const memo = document.querySelector('.memo_popup .main');
 for (let i = 0; i < 5; i++) {
 	let memoAni = document.createElement('span');
@@ -207,8 +198,6 @@ function memoAnimatio(){
 		memoAni.style.height = `${height}vh`;
 		memoAni.style.backgroundColor = rgba ;
 		memoAni.style.borderRadius = firstFrame;
-
-		
 	});
 }
 

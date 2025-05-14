@@ -60,7 +60,7 @@ const jsonData =[
 
 
 
-jsonData.forEach((data,index) => {
+jsonData.forEach((data) => {
     // 정보
     let info = document.createElement('div');
     info.setAttribute('class', 'info');
@@ -98,7 +98,7 @@ jsonData.forEach((data,index) => {
         li.append(img);
     }
 
-    // inof 버튼 클릭
+    // info 버튼 클릭
     const infoBtn = document.querySelector('.project_popup .h_bot .infoBtn');
     console.log(infoBtn)
     console.log(info)

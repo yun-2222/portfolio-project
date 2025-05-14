@@ -15,7 +15,6 @@ fetch(url).then(response=> response.json())
 
 	temp.textContent = Math.floor(temper)  + "℃";
 	wind.textContent = weather;
-	
 });	
 
 
